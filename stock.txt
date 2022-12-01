@@ -1,8 +1,8 @@
-Harry Potter,Jk Rowling,20,
-Naruto,Masashi Kishimoto,20,
-Kitab Primbon,Ki Joko Bodo,14,
-Program Komputer,Yusuf Priyandari,18,
-Kalkulus,I Wayan Suletra,19,
-Security Analysis,Benjamin,20,
-Habis Gelap Terbitlah Terang,Raden Ajeng Kartini,20,
-One Piece,Eichiro Oda,11,Rp100
+Harry Potter,Jk Rowling,20
+Naruto,Masashi Kishimoto,20
+Kitab Primbon,Ki Joko Bodo,14
+Program Komputer,Yusuf Priyandari,18
+Kalkulus,I Wayan Suletra,19
+Security Analysis,Benjamin,20
+Habis Gelap Terbitlah Terang,Raden Ajeng Kartini,20
+One Piece,Eichiro Oda,13

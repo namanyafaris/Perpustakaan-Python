@@ -187,7 +187,6 @@ def kembalikan_buku():
     path = "./Data Pinjaman/"
     a="Pinjaman-"+name+".txt"
     gabung = os.path.join(path,a)
-    print(gabung)
     try:
         with open(gabung,"r") as f:
             data=f.read()
@@ -196,9 +195,9 @@ def kembalikan_buku():
         print("Nama peminjam salah")
         kembalikan_buku()
 
-    alamat1 ="./Data Pengembalian/"
+    alamat ="./Data Pengembalian/"
     b="Pengembalian-"+name+".txt"
-    gabunngg = os.path.join(alamat1,b)
+    gabunngg = os.path.join(alamat,b)
     with open(gabunngg,"w+")as f:
         f.write("                Perpustakaan HMTI \n")
         f.write("                   Dikembalikan oleh: "+ name+"\n")
