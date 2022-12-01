@@ -5,4 +5,4 @@ Program Komputer,Yusuf Priyandari,18,
 Kalkulus,I Wayan Suletra,19,
 Security Analysis,Benjamin,20,
 Habis Gelap Terbitlah Terang,Raden Ajeng Kartini,20,
-One Piece,Eichiro Oda,11,Rp100
+One Piece,Eichiro Oda,12,
