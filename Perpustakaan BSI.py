@@ -10,7 +10,7 @@ def kembali():
 
 def menu_awal():
     while(True):
-        print("        Selamat Datang di Perpustakaan HMTI           ")
+        print("        Selamat Datang di Perpustakaan 1A           ")
         print("------------------------------------------------------")
         print(" 1 Untuk Tampilkan Buku")
         print(" 2 Untuk Pinjamkan Buku")
@@ -36,7 +36,7 @@ def menu_awal():
                 tambah_buku()
                 kembali()
             elif(a==5):
-                print("Terimakasih telah menggunakan sistem perpustakaan HMTI")
+                print("Terimakasih telah menggunakan sistem perpustakaan 1A")
                 break
             else:
                 print("Masukkan angka 1-5")
@@ -90,9 +90,8 @@ def tambah_buku():
         judul = input("judul = ")
         pengarang = input("pengarang = ")
         stok = int(input("stok = "))
-        harga = input("harga = Rp ")   
         pembatas = ","
-        f.write('\n' + judul + pembatas + pengarang + pembatas + str(stok) + pembatas + 'Rp' + harga)
+        f.write('\n' + judul + pembatas + pengarang + pembatas + str(stok) + pembatas)
 
 def pinjamkan_buku():
     success=False
@@ -113,7 +112,7 @@ def pinjamkan_buku():
     t="Pinjaman-"+firstName+".txt"
     gabung = os.path.join(path,t)
     with open(gabung,"w+") as f:
-        f.write("               Perpustakaan HMTI  \n")
+        f.write("               Perpustakaan 1A  \n")
         f.write("               Dipinjam oleh: "+ firstName+" "+lastName+"\n")
         f.write("    Tanggal: " + getDate()+"    Waktu:"+ getTime()+"\n\n")
         f.write("S.N. \t\t Judul buku \t      Pengarang \n" )
@@ -133,8 +132,11 @@ def pinjamkan_buku():
 
                     jumlah_stok[a]=int(jumlah_stok[a])-1
                     with open("stock.txt","r+") as f:
-                        for i in range(8):
-                            f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i])+","+"\n")
+                        for i in range(len(judul_buku)):
+                            if (len(judul_buku)-1 == i):
+                                f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i])+",")
+                            else:
+                                f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i])+","+"\n")
                             continue
 
                     #jika buku yang dipinjam lebih dari 1
@@ -143,7 +145,7 @@ def pinjamkan_buku():
                     while loop==True:
                         choice=str(input("Apakah ingin pinjam buku lagi ? Masukkan y jika ya dan n jika tidak."))
                         if(choice.upper()=="Y"):
-                            count=count+1
+                            count+=1
                             print("Pilih menu di bawah ini :")
                             for i in range(len(judul_buku)):
                                 print("Masukkan", i, "untuk meminjam buku", judul_buku[i])
@@ -155,7 +157,8 @@ def pinjamkan_buku():
 
                                 jumlah_stok[a]=int(jumlah_stok[a])-1
                                 with open("stock.txt","r+") as f:
-                                    for i in range(8):
+                                    # d = f.readlines()
+                                    for i in range(len(judul_buku)):
                                         f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i])+","+"\n")
                                         success=False
                                         continue
@@ -197,18 +200,18 @@ def kembalikan_buku():
 
     alamat ="./Data Pengembalian/"
     b="Pengembalian-"+name+".txt"
-    gabunngg = os.path.join(alamat,b)
-    with open(gabunngg,"w+")as f:
-        f.write("                Perpustakaan HMTI \n")
-        f.write("                   Dikembalikan oleh: "+ name+"\n")
+    gabung = os.path.join(alamat,b)
+    with open(gabung,"w+")as f:
+        f.write("                Perpustakaan 1A \n")
+        f.write("             Dikembalikan oleh: "+ name+"\n")
         f.write("    Tanggal: " + getDate()+"    Waktu:"+ getTime()+"\n\n")
         f.write("S.N.\t\tJudul Buku\t\tTotal\n")
 
 
     total=0.0
-    for i in range(8):
+    for i in range(9):
         if judul_buku[i] in data:
-            with open(gabunngg,"a") as f:
+            with open(gabung,"a") as f:
                 f.write(str(i+1)+"\t\t"+judul_buku[i]+"\t\t\n")
                 jumlah_stok[i]=int(jumlah_stok[i])+1
             
@@ -219,12 +222,12 @@ def kembalikan_buku():
         print("Berapa hari keterlambatan?")
         hari=int(input())
         denda=3000*hari
-        with open(gabunngg,"a+")as f:
+        with open(gabung,"a+")as f:
             f.write("\t\t\t\t\tDenda: Rp"+ str(denda)+"\n")
         total=total+denda
     
     print("Total pembayaran: "+ "Rp"+str(total))
-    with open(gabunngg,"a")as f:
+    with open(gabung,"a")as f:
         f.write("\t\t\t\t\tTotal: Rp"+ str(total))
     
         

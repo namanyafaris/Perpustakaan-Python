@@ -1,8 +1,0 @@
-                Perpustakaan HMTI 
-                   Dikembalikan oleh: aryo
-    Tanggal: 2022-12-01    Waktu:19:29:33.447237
-
-S.N.		Judul Buku		Total
-5		Kalkulus		
-					Denda: Rp12000
-					Total: Rp12000.0
