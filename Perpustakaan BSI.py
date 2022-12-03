@@ -97,15 +97,19 @@ def pinjamkan_buku():
     success=False
     while(True):
         firstName=input("Masukkan nama depan peminjam: ")
+
         if firstName.isalpha():
             break
         print("Masukkan huruf A-Z")
+
     while(True):
         lastName=input("Masukkan nama belakang peminjam: ")
+
         if lastName.isalpha():
             break
         print("Masukkan huruf A-Z")
         print("")
+        
     display_buku()
 
     path = './Data Pinjaman/'      
