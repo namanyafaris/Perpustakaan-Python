@@ -5,7 +5,7 @@ def clear_screen():
 
 def kembali():
     print("\n")
-    input("Tekan tombol apa saja untuk kembali...")
+    input("Tekan Enter untuk kembali...")
     clear_screen()
 
 def menu_awal():
@@ -83,7 +83,6 @@ def display_buku():
     with open("stock.txt","r+") as f:
         lines=f.read()
         print(lines)
-        print ()
 
 def tambah_buku():
     with open("stock.txt", "a+") as f:
@@ -95,11 +94,13 @@ def tambah_buku():
 
 def pinjamkan_buku():
     success=False
+    
     while(True):
         firstName=input("Masukkan nama depan peminjam: ")
 
         if firstName.isalpha():
             break
+            
         print("Masukkan huruf A-Z")
 
     while(True):
@@ -107,6 +108,7 @@ def pinjamkan_buku():
 
         if lastName.isalpha():
             break
+            
         print("Masukkan huruf A-Z")
         print("")
         
@@ -115,6 +117,7 @@ def pinjamkan_buku():
     path = './Data Pinjaman/'      
     t="Pinjaman-"+firstName+".txt"
     gabung = os.path.join(path,t)
+    
     with open(gabung,"w+") as f:
         f.write("               Perpustakaan 1A  \n")
         f.write("               Dipinjam oleh: "+ firstName+" "+lastName+"\n")
@@ -123,18 +126,23 @@ def pinjamkan_buku():
 
     while success==False:
         print("Pilih menu di bawah ini :")
+        
         for i in range(len(judul_buku)):
             print("Masukkan angka", i, "untuk meminjam buku", judul_buku[i])
     
         try:   
             a=int(input("Pilihan Anda : "))
             try:
+            
+                count=1
                 if(int(jumlah_stok[a])>0):
                     print("Buku Tersedia")
+                    
                     with open(gabung,"a") as f:
-                        f.write("1. \t\t"+ judul_buku[a]+"\t\t  "+pengarang[a]+"\n")
+                        f.write(str(count) + ". \t\t"+ judul_buku[a]+"\t\t  "+pengarang[a]+"\n")
 
                     jumlah_stok[a]=int(jumlah_stok[a])-1
+                    
                     with open("stock.txt","r+") as f:
                         for i in range(len(judul_buku)):
                             if (len(judul_buku)-1 == i):
@@ -145,15 +153,18 @@ def pinjamkan_buku():
 
                     #jika buku yang dipinjam lebih dari 1
                     loop=True
-                    count=1
+                    
                     while loop==True:
                         choice=str(input("Apakah ingin pinjam buku lagi ? Masukkan y jika ya dan n jika tidak."))
+                        
                         if(choice.upper()=="Y"):
                             count+=1
                             print("Pilih menu di bawah ini :")
+                            
                             for i in range(len(judul_buku)):
                                 print("Masukkan", i, "untuk meminjam buku", judul_buku[i])
                             a=int(input())
+                            
                             if(int(jumlah_stok[a])>0):
                                 print("Buku tersedia")
                                 with open(gabung,"a") as f:
@@ -164,27 +175,29 @@ def pinjamkan_buku():
                                     # d = f.readlines()
                                     for i in range(len(judul_buku)):
                                         f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i])+","+"\n")
-                                        success=False
                                         continue
                             else:
                                 loop=False
                                 continue
+                                
                         elif (choice.upper()=="N"):
                             print ("Terimakasih telah meminjam buku. ")
                             print("")
                             loop=False
                             success=True
+                            
                         else:
                             print("Masukkan sesuai petunjuk !")
                         
                 else:
                     print("Buku tidak tersedia")
                     pinjamkan_buku()
-                    success=False
                     continue
+                    
             except IndexError:
                 print("")
                 print("Pilih buku sesuai nomor.")
+                
         except ValueError:
             print("")
             print("Pilih sesuai petunjuk !.")
@@ -194,6 +207,7 @@ def kembalikan_buku():
     path = "./Data Pinjaman/"
     a="Pinjaman-"+name+".txt"
     gabung = os.path.join(path,a)
+    
     try:
         with open(gabung,"r") as f:
             data=f.read()
@@ -205,6 +219,7 @@ def kembalikan_buku():
     alamat ="./Data Pengembalian/"
     b="Pengembalian-"+name+".txt"
     gabung = os.path.join(alamat,b)
+    
     with open(gabung,"w+")as f:
         f.write("                Perpustakaan 1A \n")
         f.write("             Dikembalikan oleh: "+ name+"\n")
@@ -222,6 +237,7 @@ def kembalikan_buku():
     print("Apakah buku melewati batas peminjaman?")
     print("Masukkan Y jika ya dan N jika tidak")
     stat=input()
+    
     if(stat.upper()=="Y"):
         print("Berapa hari keterlambatan?")
         hari=int(input())
@@ -231,6 +247,7 @@ def kembalikan_buku():
         total=total+denda
     
     print("Total pembayaran: "+ "Rp"+str(total))
+    
     with open(gabung,"a")as f:
         f.write("\t\t\t\t\tTotal: Rp"+ str(total))
     
@@ -241,7 +258,6 @@ def kembalikan_buku():
                     f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i]))
                 else:
                     f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i])+"\n")
-
 
 
 menu_awal()
