@@ -120,10 +120,10 @@ def pinjamkan_buku():
     while success==False:
         print("Pilih menu di bawah ini :")
         for i in range(len(judul_buku)):
-            print("Masukkan", i, "untuk meminjam buku", judul_buku[i])
+            print("Masukkan angka", i, "untuk meminjam buku", judul_buku[i])
     
         try:   
-            a=int(input())
+            a=int(input("Pilihan Anda : "))
             try:
                 if(int(jumlah_stok[a])>0):
                     print("Buku Tersedia")
@@ -209,7 +209,7 @@ def kembalikan_buku():
 
 
     total=0.0
-    for i in range(9):
+    for i in range(len(judul_buku)):
         if judul_buku[i] in data:
             with open(gabung,"a") as f:
                 f.write(str(i+1)+"\t\t"+judul_buku[i]+"\t\t\n")
@@ -232,8 +232,11 @@ def kembalikan_buku():
     
         
     with open("stock.txt","r+") as f:
-            for i in range(8):
-                f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i])+"\n")
+            for i in range(len(judul_buku)):
+                if(len(judul_buku) -1 == i):
+                    f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i]))
+                else:
+                    f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i])+"\n")
 
 
 
