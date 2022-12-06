@@ -102,6 +102,7 @@ def pinjamkan_buku():
             break
             
         print("Masukkan huruf A-Z")
+        print("")
         
     display_buku()
 
@@ -246,9 +247,9 @@ def kembalikan_buku():
     with open("stock.txt","r+") as f:
             for i in range(len(judul_buku)):
                 if(len(judul_buku) -1 == i):
-                    f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i]))
+                    f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i])+",")
                 else:
-                    f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i])+"\n")
+                    f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i])+","+"\n")
 
 
 menu_awal()
