@@ -1,9 +1,10 @@
-Harry Potter,Jk Rowling,20,
-Naruto,Masashi Kishimoto,20,
-Kitab Primbon,Ki Joko Bodo,20,
-Program Komputer,Yusuf Priyandari,20,
-Kalkulus,I Wayan Suletra,20,
-Security Analysis,Benjamin,20,
-Habis Gelap Terbitlah Terang,Raden Ajeng Kartini,20,
-One Piece,Eichiro Oda,20,
-Dilan 1991,Pidi Baiq,18,
+Harry Potter,Jk Rowling,20
+Naruto,Masashi Kishimoto,20
+Kitab Primbon,Ki Joko Bodo,20
+Program Komputer,Yusuf Priyandari,20
+Kalkulus,I Wayan Suletra,20
+Security Analysis,Benjamin,20
+Habis Gelap Terbitlah Terang,Raden Ajeng Kartini,20
+One Piece,Eichiro Oda,20
+Dilan 1991,Pidi Baiq,19
+Kuliah BSI,Evan Dimas,18 Dimas,18,

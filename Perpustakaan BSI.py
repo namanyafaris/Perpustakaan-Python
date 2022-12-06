@@ -96,21 +96,12 @@ def pinjamkan_buku():
     success=False
     
     while(True):
-        firstName=input("Masukkan nama depan peminjam: ")
+        firstName=input("Masukkan nama peminjam: ")
 
         if firstName.isalpha():
             break
             
         print("Masukkan huruf A-Z")
-
-    while(True):
-        lastName=input("Masukkan nama belakang peminjam: ")
-
-        if lastName.isalpha():
-            break
-            
-        print("Masukkan huruf A-Z")
-        print("")
         
     display_buku()
 
@@ -120,7 +111,7 @@ def pinjamkan_buku():
     
     with open(gabung,"w+") as f:
         f.write("               Perpustakaan 1A  \n")
-        f.write("               Dipinjam oleh: "+ firstName+" "+lastName+"\n")
+        f.write("               Dipinjam oleh: "+ firstName+"\n")
         f.write("    Tanggal: " + getDate()+"    Waktu:"+ getTime()+"\n\n")
         f.write("S.N. \t\t Judul buku \t      Pengarang \n" )
 
