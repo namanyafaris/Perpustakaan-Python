@@ -146,7 +146,7 @@ def pinjamkan_buku():
                     loop=True
                     
                     while loop==True:
-                        choice=str(input("Apakah ingin pinjam buku lagi ? Masukkan y jika ya dan n jika tidak."))
+                        choice=str(input("Apakah ingin pinjam buku lagi ? Masukkan y jika ya dan n jika tidak.\nPilihan Anda : "))
                         
                         if(choice.upper()=="Y"):
                             count+=1
