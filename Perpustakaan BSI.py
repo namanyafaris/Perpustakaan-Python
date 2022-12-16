@@ -1,4 +1,5 @@
 import os 
+import pandas as pd
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -80,10 +81,14 @@ def getTime():
     return str(now().time())
 
 def display_buku():
-    with open("stock.txt","r+") as f:
-        lines=f.read()
-        print(lines)
-
+    fields =['Judul buku','Pengarang','Stok']
+    df = pd.read_csv('stock.txt',usecols=fields)
+    print(df)
+    # with open("stock.txt","r+") as f:
+        
+    #     lines=f.read()
+    #     # print(lines)
+    #     pd.DataFrame(f)
 def tambah_buku():
     with open("stock.txt", "a+") as f:
         judul = input("judul = ")
