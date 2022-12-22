@@ -81,14 +81,12 @@ def getTime():
     return str(now().time())
 
 def display_buku():
-    fields =['Judul buku','Pengarang','Stok']
-    df = pd.read_csv('stock.txt',usecols=fields)
+    df = pd.read_csv('stock.txt',header=None)
+    df.columns = ['Judul Buku','Pengarang','Stok','Comma']
+    df = df.drop(['Comma'], axis=1)
+    df.index += 1
     print(df)
-    # with open("stock.txt","r+") as f:
-        
-    #     lines=f.read()
-    #     # print(lines)
-    #     pd.DataFrame(f)
+
 def tambah_buku():
     with open("stock.txt", "a+") as f:
         judul = input("judul = ")
@@ -125,7 +123,7 @@ def pinjamkan_buku():
         print("Pilih menu di bawah ini :")
         
         for i in range(len(judul_buku)):
-            print("Masukkan angka", i, "untuk meminjam buku", judul_buku[i])
+            print("Masukkan kode", i, "untuk meminjam buku", judul_buku[i])
     
         try:   
             a=int(input("Pilihan Anda : "))
@@ -159,7 +157,7 @@ def pinjamkan_buku():
                             print("Pilih menu di bawah ini :")
                             
                             for i in range(len(judul_buku)):
-                                print("Masukkan", i, "untuk meminjam buku", judul_buku[i])
+                                print("Masukkan kode", i, "untuk meminjam buku", judul_buku[i])
                             a=int(input())
                             
                             if(int(jumlah_stok[a])>0):
@@ -169,7 +167,6 @@ def pinjamkan_buku():
 
                                 jumlah_stok[a]=int(jumlah_stok[a])-1
                                 with open("stock.txt","r+") as f:
-                                    # d = f.readlines()
                                     for i in range(len(judul_buku)):
                                         f.write(judul_buku[i]+","+pengarang[i]+","+str(jumlah_stok[i])+","+"\n")
                                         continue
